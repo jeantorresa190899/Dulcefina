@@ -35,11 +35,17 @@
                         <input asp-for="Contrasena" class="form-control" id="formGroupExampleInput" placeholder="Contraseña" autofocus>
                         <span asp-validation-for="Contrasena" class="text-danger"></span>
 
-                      <!-- <input asp-for="Contrasena" class="form-control" id="formGroupExampleInput" placeholder="Confirmar Contraseña" autofocus>
-                        <span asp-validation-for="Contrasena" class="text-danger"></span>-->
+                        <!--falta validadr las contraseñas(si son iguales--guardar a la base de datos)-->
 
-                        <!--input type="submit" name="" value="Crear cuenta">-->
-                        <button type="submit" class="btn btn-primary" value="btn" name="grabar" data-toggle="modal" data-target="#exampleModal">Crear cuenta</button>
+                        <input class="form-control" id="formGroupExampleInput" placeholder="Contraseña" autofocus required>
+                        <span class="text-danger"></span>
+
+
+                        <!-- <input asp-for="Contrasena" class="form-control" id="formGroupExampleInput" placeholder="Confirmar Contraseña" autofocus>
+      <span asp-validation-for="Contrasena" class="text-danger"></span>-->
+
+                        <input type="submit" name="" value="Crear cuenta">
+
                         <!--  <p class="singup">¿Ya tienes una cuenta registrada? <a onclick="toggleForm();">Iniciar Sesion</a></p>-->
                         <p class="singup">¿Ya tienes una cuenta registrada? <a asp-action="RegisterUsuario">Iniciar Sesion</a></p>
                     </form>

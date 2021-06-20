@@ -21,14 +21,14 @@
 
 
                 <div class="formBx">
-                    <form>
+                    <form asp-controller="Principal" asp-action="obtener" method="post">
                         <h2>Inicia Session</h2>
-                        <input asp-for="Correo" class="form-control" id="formGroupExampleInput" placeholder="Nombre" autofocus>
+                        <input asp-for="Correo" class="form-control" id="formGroupExampleInput" placeholder="Correo" autofocus>
                         <span asp-validation-for="Correo" class="text-danger"></span>
 
-                        <input asp-for="Contrasena" class="form-control" id="formGroupExampleInput" placeholder="Nombre" autofocus>
+                        <input asp-for="Contrasena" class="form-control" id="formGroupExampleInput" placeholder="Contraseña" autofocus>
                         <span asp-validation-for="Contrasena" class="text-danger"></span>
-                      
+
                         <input type="submit" name="" value="Ingresar">
                         <p class="singup">¿Aún no tienes una cuenta? <a asp-action="register" onclick="toggleForm();">Registrate</a></p>
                     </form>

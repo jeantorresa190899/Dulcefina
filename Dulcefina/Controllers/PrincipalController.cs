@@ -12,16 +12,16 @@ namespace Dulcefina.Controllers
     {
         //inyectar las dependencias
         private readonly IUsuarioRepository _clienteRepository;
-   
+
         public PrincipalController(IUsuarioRepository usuarioRepository)
         {
             _clienteRepository = usuarioRepository;
-         
+
         }
         //fin de dependencias
 
-     
-       
+
+
         public IActionResult Index()
         {
             return View();
@@ -52,6 +52,27 @@ namespace Dulcefina.Controllers
                 return View("register");
             }
         }
+
+
+        public IActionResult obtener()
+        {
+                if(ModelState.IsValid)
+            {
+                return View("Index");
+            }
+
+            else
+            {
+            return View();
+            }
+        }
+
+
+
+
+
+
+
 
 
         public IActionResult escoger()
