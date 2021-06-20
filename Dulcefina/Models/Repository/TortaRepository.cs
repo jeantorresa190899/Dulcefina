@@ -9,8 +9,7 @@ namespace Dulcefina.Models.Repository
     public class TortaRepository: ITortaRepository
     {
 
-        ColegioContext db = new ColegioContext();
-
+        
      
     }
 }

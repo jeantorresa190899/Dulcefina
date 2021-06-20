@@ -12,11 +12,11 @@ namespace Dulcefina.Controllers
     {
         //inyectar las dependencias
         private readonly IUsuarioRepository _clienteRepository;
-        private readonly ITortaRepository _tortaRepository;
-        public PrincipalController(IUsuarioRepository usuarioRepository, ITortaRepository tortaRepository)
+   
+        public PrincipalController(IUsuarioRepository usuarioRepository)
         {
             _clienteRepository = usuarioRepository;
-            _tortaRepository = tortaRepository;
+         
         }
         //fin de dependencias
 
