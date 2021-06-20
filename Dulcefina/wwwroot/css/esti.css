@@ -1,0 +1,310 @@
+#Principal {
+    width: 1337px; /*   le estamos poniendo el ancho y el heigth no por que queremos que sea automatico*/ /*100%*/
+    border: 1px solid rgb(255, 214, 246);
+    background-color: rgb(255, 214, 246);
+    margin: 0px 0px 0px -110px;
+}
+
+#Cabecera{
+    /*border:1px solid rgb(245, 12, 12);*/
+    position: relative;
+   
+}
+
+#nompag{
+    background-color:#fdc7dc;
+    /*border:1px solid rgb(15, 13, 15);*/
+  /*  text-align: center;*/
+    padding:30px;
+    
+}
+#nompag>#dulce {
+    text-decoration:none;
+    color:white;
+    font-size: 40px;
+    margin-left:520px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#nompag i{     /* registrarse-login*/
+    padding-left: 190px;
+    font-style: normal;
+    font-size: 18px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    
+}
+#nompag>a {
+    text-decoration: none;
+}
+
+#menuu{
+    background-color:white;
+
+}
+
+
+
+/*#nompag #log{
+    border:1px solid black;
+    margin: 0px 40px 0px 565px;
+    right:200px;
+  
+   text-decoration: none;
+    font-size:20px ;
+}*/
+
+
+
+.carrito {
+    position: absolute;
+    width: 38px;
+    left:1190px;
+    bottom: 100px;
+}
+.insta{
+    position: absolute;
+    width:38px;
+    left:240px;
+    bottom: 100px;
+}
+.facebook{
+    position: absolute;
+    width:38px;
+    left:170px;
+    bottom: 100px;
+
+}
+.navegacion {
+    background-color: white;
+    /*height:40px;*/
+    text-align: center;
+    padding:10px;
+}
+
+.navegacion ul {    /*los ul del menu y submenu */
+    list-style: none;
+    
+}
+
+.menu > li {    /*los li que esten dentro de menu menos los de submenu */
+    position: relative;
+    display: inline-block;
+}
+
+.menu>li>a {
+    display:block;
+    padding:0px 13px; 
+    color: #757373;
+    font-family: "Open sans";
+    text-decoration: none;
+}
+
+
+.menu li a:hover {   /*a todos los li y a */
+    /*font-size: 22px;*/
+   transition: all .3s;
+}
+
+#opcTortas{
+    padding: 0px;
+    margin:20px 20px 0px 300px;
+    width: 30%; 
+    float:left;   
+    
+}
+#carouselExampleControls{
+    box-shadow: 0 0 40px rgb(247, 107, 212);
+    border-radius:30px;
+}
+
+#carouselExampleControls img{
+    border-radius: 3px;
+}
+
+#desc{
+    margin: 40px;
+    border: 1px solid #000000;
+    width:360px;
+    position: relative;
+    font-family: "Open sans";
+    color: #757373;
+    float:left;
+}
+#tortas{
+    padding-left:110px;
+}
+
+#tortas> #columna1:hover,#columna2:hover,#columna3:hover,#columna4:hover{
+    box-shadow: 10px 5px 5px rgb(253, 156, 229);
+}
+#columna1{
+    background-image: url("../imagenes/torta1.jpg");
+}
+
+#columna2{ 
+    background-image: url("../imagenes/torta2.jpg");
+}
+
+#columna3{  
+    background-image: url("../imagenes/torta3.jpg");
+}
+
+#columna4{
+    background-image: url("../imagenes/torta4.jpg");
+}
+#columna1,#columna2,#columna3,#columna4{
+    border: 10px solid white;
+    border-image: auto;
+    background-size: 100%;   
+    background-repeat: no-repeat;
+    width:20%;
+    margin: 12px;
+    float:left;
+}
+.clear{
+    clear:both;
+}
+
+.opc{
+    margin-top:57%;
+    margin-left:43%;
+    
+}
+
+.opc>a{
+  
+    font-size: 14px;
+    text-decoration: none;
+    color: #555454;    
+}
+.opc>a:hover{
+    background: #fd9de1;
+    color:black;
+    font-size:16px;
+
+}
+
+/*estilo para la fila NOTICIAS*/
+
+
+#columna2_2>h3{
+    font-weight:400;
+    margin-left:30px ;
+    margin-right:30px;
+}
+#columna2_2>a{
+    text-decoration: none;
+    color:red;
+}
+
+
+/*imagenes
+#columna1_1>img{
+    position:absolute;
+    left:0px;
+    width:360px;
+    top:0px;
+}*/
+
+#columna2_2>img{
+    position:absolute;
+    left:0px;
+    width:360px;
+    top:0px;
+}
+
+#columna3_3>img{
+    position:absolute;
+    left:0px;
+    width:360px;
+    top:0px;
+}
+
+#piepag{
+    margin-top:60px;
+    position: relative;
+    background-color:#fdc7dc;
+    color:white;
+    font-family: "Open sans";
+    font-size: 13px;
+ 
+}
+#piepag>img{
+    margin-top: 50px;
+    border-radius: 50%;
+    left:50%;
+    position: absolute;
+    width: 140px;
+}
+
+#colum1 {
+    margin-top:230px;
+    margin-left:100px;
+    float:left;
+    width:23%;
+    text-decoration:none;  
+}
+
+#colum2{
+    margin-top:230px;
+    float:left;
+    width:23%;
+}
+#colum3{
+    margin-top:230px;
+    float:left;
+    width:23%;
+}
+#colum4{
+    margin-top:230px;
+    float:left;
+    width:23%;
+}
+
+#piepag>h4{
+    margin-left: 57%;
+    color:white;
+    font-weight: normal;
+}
+
+#colum1>a{
+    text-decoration: none;
+    color:white;
+}
+
+#colum2>a{
+    text-decoration: none;
+    color:white;
+}
+#colum3>a{
+    text-decoration: none;
+    color:white;
+}
+#colum4>a{
+    text-decoration: none;
+    color:white;
+}
+
+hr{
+    color:white;
+}
+
+
+#columnacentral>button{
+    position: absolute;
+    left:75px;
+    top:70px;
+    font-weight: bold;
+    color:white;
+    background-color: red;
+    height: 40px;
+    width: 120px;
+}
+   
+#tortas>h3{
+    border: 1px solid #000000;
+    padding: 5px;
+}
+

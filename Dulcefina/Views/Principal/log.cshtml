@@ -1,0 +1,39 @@
+﻿@model Dulcefina.Models.Cliente
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="user singinBx">
+                <div class="imgBx"><img src="~/imagenes/login.jpg" /></div>
+
+
+                <div class="formBx">
+                    <form>
+                        <h2>Inicia Session</h2>
+                        <input type="text" name="" placeholder="Username">
+                        <input type="password" name="" placeholder="Password">
+                        <input type="submit" name="" value="Ingresar">
+                        <p class="singup">¿Aún no tienes una cuenta? <a asp-controller="Principal" asp-action="register" onclick="toggleForm();">Registrate</a></p>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script type="text/javascript" src="~/js/app.js"></script>
+</body>
+</html>
