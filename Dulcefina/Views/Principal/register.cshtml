@@ -26,7 +26,7 @@
                         <input asp-for="Nombre" class="form-control" id="formGroupExampleInput" placeholder="Nombre" autofocus>
                         <span asp-validation-for="Nombre" class="text-danger"></span>
 
-                        <input asp-for="Apellidos" class="form-control" id="formGroupExampleInput" placeholder="Apellidos" autofocus>
+                        <input asp-for="Apellidos" class="form-control" id="formGroupExampleInput" placeholder="Apellidos" autofocus required>
                         <span asp-validation-for="Apellidos" class="text-danger"></span>
 
                         <input asp-for="Correo" class="form-control" id="formGroupExampleInput" placeholder="Correo" autofocus>
@@ -35,12 +35,13 @@
                         <input asp-for="Contrasena" class="form-control" id="formGroupExampleInput" placeholder="Contraseña" autofocus>
                         <span asp-validation-for="Contrasena" class="text-danger"></span>
 
-                        <input asp-for="Contrasena" class="form-control" id="formGroupExampleInput" placeholder="Confirmar Contraseña" autofocus>
-                        <span asp-validation-for="Contrasena" class="text-danger"></span>
+                      <!-- <input asp-for="Contrasena" class="form-control" id="formGroupExampleInput" placeholder="Confirmar Contraseña" autofocus>
+                        <span asp-validation-for="Contrasena" class="text-danger"></span>-->
 
-                        <input type="submit" name="" value="Crear cuenta">
-
-                        <p class="singup">¿Ya tienes una cuenta registrada? <a onclick="toggleForm();">Iniciar Sesion</a></p>
+                        <!--input type="submit" name="" value="Crear cuenta">-->
+                        <button type="submit" class="btn btn-primary" value="btn" name="grabar" data-toggle="modal" data-target="#exampleModal">Crear cuenta</button>
+                        <!--  <p class="singup">¿Ya tienes una cuenta registrada? <a onclick="toggleForm();">Iniciar Sesion</a></p>-->
+                        <p class="singup">¿Ya tienes una cuenta registrada? <a asp-action="RegisterUsuario">Iniciar Sesion</a></p>
                     </form>
                 </div>
             </div>

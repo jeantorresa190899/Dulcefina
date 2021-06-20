@@ -13,7 +13,7 @@ namespace Dulcefina.Models.Repository
         {
             try
             {
-                db.Clientes.Add(cliente);
+                db.Clientes.Add(cliente);   
                 db.SaveChanges();  //Actualizar la tabla 
             }
             catch (Exception e)
@@ -26,8 +26,6 @@ namespace Dulcefina.Models.Repository
         {
             return db.Clientes;
         }
-
-    
 
     }
 }
