@@ -12,13 +12,16 @@ namespace Dulcefina.Controllers
     {
         //inyectar las dependencias
         private readonly IUsuarioRepository _clienteRepository;
-
-        public PrincipalController(IUsuarioRepository usuarioRepository)
+        private readonly ITortaRepository _tortaRepository;
+        public PrincipalController(IUsuarioRepository usuarioRepository, ITortaRepository tortaRepository)
         {
             _clienteRepository = usuarioRepository;
+            _tortaRepository = tortaRepository;
         }
         //fin de dependencias
 
+     
+       
         public IActionResult Index()
         {
             return View();
@@ -55,6 +58,15 @@ namespace Dulcefina.Controllers
         {
             return View();
         }
+
+
+        public IActionResult Listartorta()
+        {
+            _tortaRepository.
+            return View();
+        }
+
+
 
     }
 }

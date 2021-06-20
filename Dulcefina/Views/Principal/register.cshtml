@@ -29,23 +29,17 @@
                         <input asp-for="Apellidos" class="form-control" id="formGroupExampleInput" placeholder="Apellidos" autofocus>
                         <span asp-validation-for="Apellidos" class="text-danger"></span>
 
-                        <input asp-for="Dni" class="form-control" id="formGroupExampleInput" placeholder="DNI" autofocus>
-                        <span asp-validation-for="Dni" class="text-danger"></span>
-
-
-                        <input asp-for="Domicilio" class="form-control" id="formGroupExampleInput" placeholder="Domicilio" autofocus>
-                        <span asp-validation-for="Domicilio" class="text-danger"></span>
-
-                        <input asp-for="Telefono" class="form-control" id="formGroupExampleInput" placeholder="Teléfono" autofocus>
-                        <span asp-validation-for="Telefono" class="text-danger"></span>
-
                         <input asp-for="Correo" class="form-control" id="formGroupExampleInput" placeholder="Correo" autofocus>
                         <span asp-validation-for="Correo" class="text-danger"></span>
 
-              
-                        <input type="password" name="" placeholder="Create Password">
-                        <input type="password" name="" placeholder="Confirm Password">
+                        <input asp-for="Contrasena" class="form-control" id="formGroupExampleInput" placeholder="Contraseña" autofocus>
+                        <span asp-validation-for="Contrasena" class="text-danger"></span>
+
+                        <input asp-for="Contrasena" class="form-control" id="formGroupExampleInput" placeholder="Confirmar Contraseña" autofocus>
+                        <span asp-validation-for="Contrasena" class="text-danger"></span>
+
                         <input type="submit" name="" value="Crear cuenta">
+
                         <p class="singup">¿Ya tienes una cuenta registrada? <a asp-controller="Principal" asp-action="log" onclick="toggleForm();">Iniciar Sesion</a></p>
                     </form>
                 </div>
