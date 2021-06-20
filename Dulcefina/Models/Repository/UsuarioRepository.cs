@@ -27,10 +27,7 @@ namespace Dulcefina.Models.Repository
             return db.Clientes;
         }
 
-        public Listar()
-        {
-            retur
-        }
+    
 
     }
 }

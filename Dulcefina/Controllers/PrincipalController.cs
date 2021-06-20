@@ -60,11 +60,7 @@ namespace Dulcefina.Controllers
         }
 
 
-        public IActionResult Listartorta()
-        {
-            _tortaRepository.
-            return View();
-        }
+    
 
 
 
