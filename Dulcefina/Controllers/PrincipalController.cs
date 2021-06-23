@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dulcefina.Models.Interface;
 using Dulcefina.Models;
-
-
+using Microsoft.AspNetCore.Http;
 
 namespace Dulcefina.Controllers
 {
@@ -52,9 +52,30 @@ namespace Dulcefina.Controllers
         public IActionResult log()
 
         {
-            return View();       
+            return View();
         }
 
 
+        public IActionResult validarUsuario(Cliente cliente)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_clienteRepository.validarUsuario(cliente) == true)
+                {
+                    HttpContext.Session.SetString("scliente", JsonConvert.SerializeObject(cliente));
+                    return RedirectToAction("Index", "Principal");
+                }
+                else
+                {
+                    return View("log");
+                }
+
+            }
+            else
+            {
+                return View("log");
+            }
+
+        }
     }
 }

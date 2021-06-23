@@ -11,7 +11,7 @@ namespace Dulcefina.Models.Interface
         void Add(Cliente cliente);
         //void Obtener1(Cliente cliente);
         // public Cliente validar(string correo);
-        public int validar(Cliente cliente);
+        public bool validarUsuario(Cliente cliente);
     }
 
    
