@@ -9,5 +9,10 @@ namespace Dulcefina.Models.Interface
     {
         IEnumerable<Cliente> GetAllUsuarios();
         void Add(Cliente cliente);
+        //void Obtener1(Cliente cliente);
+        // public Cliente validar(string correo);
+        public int validar(Cliente cliente);
     }
+
+   
 }

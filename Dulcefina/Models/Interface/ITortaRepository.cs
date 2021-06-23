@@ -7,5 +7,6 @@ namespace Dulcefina.Models.Interface
 {
     public interface ITortaRepository
     {
+        IEnumerable<Tortum> GetAllUsuarios();
     }
 }

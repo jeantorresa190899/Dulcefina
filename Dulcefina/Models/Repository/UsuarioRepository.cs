@@ -13,7 +13,7 @@ namespace Dulcefina.Models.Repository
         {
             try
             {
-                db.Clientes.Add(cliente);   
+                db.Clientes.Add(cliente);
                 db.SaveChanges();  //Actualizar la tabla 
             }
             catch (Exception e)
@@ -26,6 +26,43 @@ namespace Dulcefina.Models.Repository
         {
             return db.Clientes;
         }
+        public int validar(Cliente cliente)
+        {
+            try
+            {
+                var Obj=(from tc in db.Clientes
+                           where tc.Correo == cliente.Correo
+                           select tc).FirstOrDefault();
+                if (!"".Equals(Obj))
+                {
+                    return 1;
+                }
+            }
+            catch
+            {
+                return 0;
+            }
+            return 0;
+        }
+
+        /*  void Obtener1(Cliente cliente)
+         {
+             try
+             {
+                 var Obj = (from tc in db.Clientes
+                            where tc.Correo == cliente.Correo
+                            select tc).FirstOrDefault();
+             // if(!"".Equals(Obj))
+
+             }
+             catch (Exception e)
+             {
+                 Console.WriteLine(e.Message);
+             }
+         }*/
+
+
+
 
     }
 }

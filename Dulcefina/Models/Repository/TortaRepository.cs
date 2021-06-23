@@ -8,8 +8,15 @@ namespace Dulcefina.Models.Repository
 {
     public class TortaRepository: ITortaRepository
     {
+       
 
-        
-     
+        ColegioContext db = new ColegioContext();
+        public IEnumerable<Tortum> GetAllUsuarios()
+        {
+            return db.Torta.ToList();
+        }
+
+
+
     }
 }

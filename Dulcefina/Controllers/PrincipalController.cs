@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Dulcefina.Models.Interface;
 using Dulcefina.Models;
 
+
+
 namespace Dulcefina.Controllers
 {
     public class PrincipalController : Controller
@@ -27,18 +29,11 @@ namespace Dulcefina.Controllers
             return View();
         }
 
-        public IActionResult log()
-        {
-            return View();
-        }
 
         public IActionResult register()
         {
             return View();
         }
-
-
-
 
         public IActionResult RegisterUsuario(Cliente cliente)
         {
@@ -54,36 +49,11 @@ namespace Dulcefina.Controllers
         }
 
 
-        public IActionResult obtener()
+        public IActionResult log()
+
         {
-                if(ModelState.IsValid)
-            {
-                /*_clienteRepository.*/
-                return View("Index");
-            }
-
-            else
-            {
-            return View();
-            }
+            return View();       
         }
-
-
-
-
-
-
-
-
-
-        public IActionResult escoger()
-        {
-            return View();
-        }
-
-
-    
-
 
 
     }

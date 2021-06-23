@@ -12,9 +12,9 @@ namespace Dulcefina.Models
         }
      /*   [Required(ErrorMessage = "El campo ID es obligatorio")]*/
         public int IdCliente { get; set; }
-        [Required(ErrorMessage = "El campo Nombre es obligatorio")]
+       /*[Required(ErrorMessage = "El campo Nombre es obligatorio")]*/
         public string Nombre { get; set; }
-        [Required(ErrorMessage = "El campoApellido es obligatorio")]
+        /*[Required(ErrorMessage = "El campoApellido es obligatorio")]*/
         public string Apellidos { get; set; }
        /* [Required(ErrorMessage = "El campo DNI es obligatorio")]*/
         public int? Dni { get; set; }

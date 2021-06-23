@@ -1,4 +1,5 @@
 ﻿@model Dulcefina.Models.Cliente
+
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -21,9 +22,9 @@
 
 
                 <div class="formBx">
-                    <form asp-controller="Principal" asp-action="obtener" method="post">
+                    <form asp-controller="Account" asp-action="Verify" method="post">
                         <h2>Inicia Session</h2>
-                        <input asp-for="Correo" class="form-control" id="formGroupExampleInput" placeholder="Correo" autofocus>
+                        <input asp-for="Correo" class="form-control" id="formGroupExampleInput"  placeholder="Correo" autofocus>
                         <span asp-validation-for="Correo" class="text-danger"></span>
 
                         <input asp-for="Contrasena" class="form-control" id="formGroupExampleInput" placeholder="Contraseña" autofocus>
