@@ -12,10 +12,15 @@ namespace Dulcefina.Models.Repository
 
         ColegioContext db = new ColegioContext();
         public IEnumerable<Tortum> GetAllTorta()
-        {
+        {   
             return db.Torta.ToList();
         }
 
+        public IEnumerable<Topping> GetAllTopping()
+        {
+            return db.Toppings.ToList();
+        }
+    
 
 
     }

@@ -26,24 +26,37 @@ namespace Dulcefina.Models.Repository
         {
             return db.Clientes;
         }
-        public bool validarUsuario(Cliente cliente)
+       
+        public bool ValidarUsuario(Cliente cliente)
         {
-          
-                var Obj=(from tc in db.Clientes
-                           where tc.Correo == cliente.Correo && tc.Contrasena == cliente.Contrasena
-                           select tc).FirstOrDefault();
-                if (Obj==null)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+            var Obj = (from a in db.Clientes
+                        where a.Correo == cliente.Correo &&
+                        a.Contrasena == cliente.Contrasena
+                        select a).FirstOrDefault();
+
+            if (Obj == null)
+            {
+                return false;
             }
-          
-            
-        
+            else
+            {
+                return true;
+            }
+        }
+
+
+        public Cliente Datos(string correo)
+        {
+            var Obj = (from a in db.Clientes
+                       where a.Correo ==correo select a ).FirstOrDefault();
+      
+            return Obj;
+        }
+
+
+
+
+
 
         /*  void Obtener1(Cliente cliente)
          {
@@ -65,4 +78,4 @@ namespace Dulcefina.Models.Repository
 
 
     }
-}
+    }

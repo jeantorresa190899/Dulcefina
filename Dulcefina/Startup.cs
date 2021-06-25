@@ -30,6 +30,10 @@ namespace Dulcefina
 
             services.Add(new ServiceDescriptor(typeof(ITortaRepository), new TortaRepository()));
             services.AddControllersWithViews();
+
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromSeconds(3600);
+            }); //Agregar sesiones al proyecto
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +53,7 @@ namespace Dulcefina
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthorization();
 

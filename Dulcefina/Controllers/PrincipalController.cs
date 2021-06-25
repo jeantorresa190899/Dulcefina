@@ -8,16 +8,18 @@ using Dulcefina.Models.Interface;
 using Dulcefina.Models;
 using Microsoft.AspNetCore.Http;
 
+
 namespace Dulcefina.Controllers
 {
     public class PrincipalController : Controller
     {
         //inyectar las dependencias
         private readonly IUsuarioRepository _clienteRepository;
-
-        public PrincipalController(IUsuarioRepository usuarioRepository)
+        private readonly ITortaRepository _tortaRepository;
+        public PrincipalController(IUsuarioRepository usuarioRepository,ITortaRepository tortaRepository)
         {
             _clienteRepository = usuarioRepository;
+            _tortaRepository = tortaRepository;
 
         }
         //fin de dependencias
@@ -26,7 +28,9 @@ namespace Dulcefina.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            ViewBag.tortas = _tortaRepository.GetAllTorta();
+            return View(_tortaRepository.GetAllTorta());
+          
         }
 
 
@@ -56,14 +60,14 @@ namespace Dulcefina.Controllers
         }
 
 
-        public IActionResult validarUsuario(Cliente cliente)
+        public IActionResult ValidarUsuario(Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                if (_clienteRepository.validarUsuario(cliente) == true)
+                if (_clienteRepository.ValidarUsuario(cliente) == true)
                 {
                     HttpContext.Session.SetString("scliente", JsonConvert.SerializeObject(cliente));
-                    return RedirectToAction("Index", "Principal");
+                    return RedirectToAction("Bienvenido", "Ingreso");
                 }
                 else
                 {
@@ -75,6 +79,7 @@ namespace Dulcefina.Controllers
             {
                 return View("log");
             }
+
 
         }
     }

@@ -22,7 +22,7 @@
 
 
                 <div class="formBx">
-                    <form asp-controller="Account" asp-action="Verify" method="post">
+                    <form asp-controller="Principal" asp-action="ValidarUsuario" method="post">
                         <h2>Inicia Session</h2>
                         <input asp-for="Correo" class="form-control" id="formGroupExampleInput"  placeholder="Correo" autofocus>
                         <span asp-validation-for="Correo" class="text-danger"></span>

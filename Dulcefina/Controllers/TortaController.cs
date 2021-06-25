@@ -19,7 +19,8 @@ namespace Dulcefina.Controllers
 
         public IActionResult EscogerTorta()
         {
-
+            ViewBag.torta = _tortaRepository.GetAllTorta();
+            ViewBag.topping = _tortaRepository.GetAllTopping();
             return View();
 
         }

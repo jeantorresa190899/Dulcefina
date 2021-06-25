@@ -1,4 +1,4 @@
-﻿@model Dulcefina.Models.Tortum
+﻿@model IEnumerable<Dulcefina.Models.Tortum>
     
         @*
             For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -65,36 +65,40 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-
-                <div id="opcTortas">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <a asp-controller="Torta" asp-action="EscogerTorta" target="_blank"><img src="imagenes/opcTealAntoinetteB.png" class="d-block w-100" alt="..."></a>
+               
+                    <div id="opcTortas">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <!--(arroba)foreach (var item in ViewBag.tortas)-->
+                                    
+                                    <disv id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <a asp-controller="Torta" asp-action="EscogerTorta" target="_blank"><img src="imagenes/opcTealAntoinetteB.png" class="d-block w-100" alt="..."></a>       <!-- src="imagenes/(arroba)item.foto"-->
+                                            </div>
+                                            <div class="carousel-item">
+                                                <a asp-controller="Torta" asp-action="EscogerTorta" target="_blank"><img src="imagenes/opcGranjaB.png" class="d-block w-100" alt="..."></a>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <a asp-controller="Torta" asp-action="EscogerTorta" target="_blank"><img src="imagenes/opcOne02B.png" class="d-block w-100" alt="..."></a>
+                                            </div>
                                         </div>
-                                        <div class="carousel-item">
-                                            <a asp-controller="Torta" asp-action="EscogerTorta" target="_blank"><img src="imagenes/opcGranjaB.png" class="d-block w-100" alt="..."></a>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <a asp-controller="Torta" asp-action="EscogerTorta"  target="_blank"><img src="imagenes/opcOne02B.png" class="d-block w-100" alt="..."></a>
-                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </disv>
+                                    
                                     </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+             
                 <div id="desc">
 
                     ¡Cada torta es única como tú!

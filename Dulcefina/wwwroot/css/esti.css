@@ -1,7 +1,15 @@
 #Principal {
     width: 1337px; /*   le estamos poniendo el ancho y el heigth no por que queremos que sea automatico*/ /*100%*/
     border: 1px solid rgb(255, 214, 246);
-    background-color: rgb(255, 214, 246);
+    background-color: rgb(233, 220, 208);
+    /*background-color: rgb(255, 214, 246);*/
+    margin: 0px 0px 0px -110px;
+}
+#Principal1 {
+    width: 1337px; /*   le estamos poniendo el ancho y el heigth no por que queremos que sea automatico*/ /*100%*/
+    border: 1px solid rgb(255, 214, 246);
+    background-color: white;
+    /*background-color: rgb(255, 214, 246);*/
     margin: 0px 0px 0px -110px;
 }
 
