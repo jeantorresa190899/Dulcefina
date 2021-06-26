@@ -13,7 +13,14 @@
     margin: 0px 0px 0px -110px;
 }
 
-#Cabecera{
+#Cerrar {
+    left: 1190px;
+   /* border: 1px solid black;*/
+    padding-left: 810px;
+    text-decoration: none;
+}
+
+#Cabecera {
     /*border:1px solid rgb(245, 12, 12);*/
     position: relative;
    
@@ -316,3 +323,6 @@ hr{
     padding: 5px;
 }
 
+.card{
+    display:flex;
+}

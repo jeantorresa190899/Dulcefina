@@ -16,6 +16,8 @@ namespace Dulcefina.Controllers
         //inyectar las dependencias
         private readonly IUsuarioRepository _clienteRepository;
         private readonly ITortaRepository _tortaRepository;
+
+      //  public List<Tortum> LstTorta { get; set; }
         public PrincipalController(IUsuarioRepository usuarioRepository,ITortaRepository tortaRepository)
         {
             _clienteRepository = usuarioRepository;
@@ -23,15 +25,24 @@ namespace Dulcefina.Controllers
 
         }
         //fin de dependencias
+        /* public void OnGet()
+         {
+             LstTorta = _tortaRepository.GetAllTorta();
+         }
+        */
 
+         public IActionResult Index()
+       {
+            ViewBag.tortas = _tortaRepository.GetAllTorta();
+            return View(_tortaRepository.GetAllTorta());         
+        }
 
-
-        public IActionResult Index()
+        public IActionResult Probando()
         {
             ViewBag.tortas = _tortaRepository.GetAllTorta();
             return View(_tortaRepository.GetAllTorta());
-          
         }
+
 
 
         public IActionResult register()
@@ -82,5 +93,7 @@ namespace Dulcefina.Controllers
 
 
         }
+
+       
     }
 }

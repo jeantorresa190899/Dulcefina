@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Dulcefina.Models.Tortum>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@foreach (var item in Model)
+{
+    <div class="col-4" style="font-family: 'Oswald', sans-serif; font-size: 15px;">
+        <div class="card" style="width: 15rem;">
+            <img src="~/imagenes/@item.Foto" width="100" height="100" title="@item.Porcion" alt="Titulo" class="card-img-top">
+            <input type="hidden" id="lblImagenP_@item.IdTorta" value="@item.Foto">
+            <div class="card-body">
+                <input type="hidden" id="lblIdProductoP_@item.IdTorta" value="@item.IdTorta">
+                <span id="lblNombreP_@item.IdTorta" value="@item.Porcion">@item.Porcion</span>
+                <p class="card-text">Descripcion: <span id="lblDescripcionP_@item.IdTorta" value="@item.Porcion">@item.Porcion</span></p>
+                <input type="hidden" id="lblIdCategoriaProductoP_@item.IdTorta" value="@item.IdCategoria">
+                <h5 class="card-title">S/. <span id="lblPrecioP_@item.IdTorta" value="@item.Precio">@item.Precio</span></h5>
+                <input type="hidden" id="lblCantidadP_@item.IdTorta" value="@item.Sabor">
+                <input type="text" id="txtCantidadC_@item.IdTorta">
+                <br>
+                <br>
+                <button class="btn btn-block btn-primary" name="btnAccion" value="Agregar" onclick="fnAgregar(
+                                            $('#'+'lblIdProductoP_@item.IdTorta').val(),
+                                            $('#'+'lblNombreP_@item.IdTorta').text(),
+                                            $('#'+'lblDescripcionP_@item.IdTorta').text(),
+                                            $('#'+'lblIdCategoriaProductoP_@item.IdTorta').val(),
+                                            $('#'+'lblPrecioP_@item.IdTorta').text(),
+                                            $('#'+'lblCantidadP_@item.IdTorta').val(),
+                                            $('#'+'txtCantidadC_@item.IdTorta').val(),
+                                            $('#'+'lblImagenP_@item.IdTorta').val()
+                                            )">
+                    Agregar
+                </button>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+}

@@ -19,6 +19,8 @@ namespace Dulcefina.Models
         public string Foto { get; set; }
         public string IdCategoria { get; set; }
 
+
+       
         public virtual Categorium IdCategoriaNavigation { get; set; }
         public virtual ICollection<DetallePedido> DetallePedidos { get; set; }
     }

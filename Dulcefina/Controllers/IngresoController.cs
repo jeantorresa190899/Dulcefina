@@ -36,5 +36,11 @@ namespace Dulcefina.Controllers
                 return RedirectToAction("log", "Principal"); //return View();
             }
         }
+
+        public IActionResult Cerrar()
+        {
+            HttpContext.Session.Clear();//cerrar sesion
+            return RedirectToAction("Index","Principal");
+        }
     }
 }

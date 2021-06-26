@@ -1,0 +1,131 @@
+﻿@model IEnumerable<Dulcefina.Models.Tortum>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulcefina</title>
+    <!--<link href="css/esti.css" rel="stylesheet" type="text/css">-->
+    <link href="~/css/esti.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+    <div id="Principal1">
+        <div id="Cabecera">
+            <div id="nompag">
+                <a href="http://www.google.com" target="_blank"><img class="facebook" src="~/imagenes/facebook.png"></a>
+                <a href="http://www.google.com" target="_blank"><img class="insta" src="~/imagenes/insta.png"></a>
+                <a id="dulce" href="QuienesSomos.html">DULCEFINA</a>
+                <a asp-controller="Principal" asp-action="log" target="_blank"><i>Registrarse/Iniciar sesión</i></a>
+
+                <a href="http://www.google.com" target="_blank"><img class="carrito" src="~/imagenes/carrito.png" title="fm" alt="logo"></a>
+            </div>
+            <div id="menuu">
+                <nav class="navegacion">
+                    <ul class="menu">
+                        <li><a href="#" target="_blank">HOME</a></li>   <!--para que se abra el link en otra pagina-->
+                        <li><a href="#" target="_blank">NOSOTROS</a></li>
+                        <li><a href="#" target="_blank">TIENDA</a></li>
+                        <li><a href="#" target="_blank">NOVIAS</a></li>
+                        <li><a href="#" target="_blank">DULCEFINA FACTORY</a></li>
+                        <li><a href="#" target="_blank">ENCUÉNTRANOS</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+            @foreach (var item in Model)
+            {
+            
+
+            <div class="col-4" style="font-family: 'Oswald', sans-serif; font-size: 15px;">
+                <div style="width: 15rem;">
+                    <img src="~/imagenes/@item.Foto" height="210" title="@item.Porcion" alt="Titulo" class="card-img-top">
+                    <input type="hidden" id="lblImagenP_@item.IdTorta" value="@item.Foto">
+                    <div class="card-body">
+                        <input type="hidden" id="lblIdProductoP_@item.IdTorta" value="@item.IdTorta">
+                        <span id="lblNombreP_@item.IdTorta" value="@item.Porcion">@item.Porcion</span>
+                        <p class="card-text">Descripcion: <span id="lblDescripcionP_@item.IdTorta" value="@item.Porcion">@item.Porcion</span></p>
+                        <input type="hidden" id="lblIdCategoriaProductoP_@item.IdTorta" value="@item.IdCategoria">
+                        <h5 class="card-title">S/. <span id="lblPrecioP_@item.IdTorta" value="@item.Precio">@item.Precio</span></h5>
+                        <input type="hidden" id="lblCantidadP_@item.IdTorta" value="@item.Sabor">
+                        <input type="text" id="txtCantidadC_@item.IdTorta">
+                        <br>
+                        <br>
+                        <button class="btn btn-block btn-primary" name="btnAccion" value="Agregar" onclick="fnAgregar(
+                                            $('#'+'lblIdProductoP_@item.IdTorta').val(),
+                                            $('#'+'lblNombreP_@item.IdTorta').text(),
+                                            $('#'+'lblDescripcionP_@item.IdTorta').text(),
+                                            $('#'+'lblIdCategoriaProductoP_@item.IdTorta').val(),
+                                            $('#'+'lblPrecioP_@item.IdTorta').text(),
+                                            $('#'+'lblCantidadP_@item.IdTorta').val(),
+                                            $('#'+'txtCantidadC_@item.IdTorta').val(),
+                                            $('#'+'lblImagenP_@item.IdTorta').val()
+                                            )">
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+        }
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>  <!--para usar bootstrap el carrusel-->
+
+        <div id="tortas">
+            <div id="columna1">
+                <br><br>
+                <h3 class="opc"><a href="Inicio.html" target="_blank">CELEBRACIONES</a></h3>
+            </div>
+            <div id="columna2">
+                <br><br>
+                <h3 class="opc"><a href="Inicio.html" target="_blank">MESA DE DULCES</a></h3>
+            </div>
+            <div id="columna3">
+                <br><br>
+                <h3 class="opc"><a href="Inicio.html" target="_blank">CUMPLEAÑOS</a></h3>
+            </div>
+            <div id="columna4">
+                <br><br>
+                <h3 class="opc"><a href="Inicio.html" target="_blank">TORTA DEL MES</a></h3>
+            </div>
+            <div class="clear">
+                <!--esto es para hacer q las columnas se metan dentro del contenedor principal, por que el float los habia sacado-->
+            </div>
+        </div>
+
+        <div id="piepag">
+            <img src="~/imagenes/dulcefina.jpg" title="fm" alt="piepagina">
+            <div id="colum1">
+                <a href="Inicio.html">Inscríbete a nuestros Newsletters</a><br>
+                <br><br><br><br><br><br><br> © 2020 Dulcefina. Todos los Derechos Reservados.
+            </div>
+            <div id="colum2">
+                <a href="Inicio.html">Términos y Condiciones</a><br>
+            </div>
+
+            <div id="colum3">
+                <a href="Inicio.html">Servicio al Cliente</a><br>
+            </div>
+            <div id="colum4">
+                <a href="Inicio.html">Libro de Reclamaciones</a><br>
+            </div>
+
+            <div class="clear">
+            </div>
+            <br><br><br><br>
+            <hr>
+            <br><br><br>
+        </div>
+    </div>
+</body>
+</html>

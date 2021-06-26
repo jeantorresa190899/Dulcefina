@@ -11,6 +11,14 @@ namespace Dulcefina.Models.Repository
        
 
         ColegioContext db = new ColegioContext();
+
+       // _TortaList = new List<Tortum>()=new Tortum();
+      /*  public List<Tortum> GetAllTortum()
+        {
+            
+            return _TortaList;
+        }*/
+
         public IEnumerable<Tortum> GetAllTorta()
         {   
             return db.Torta.ToList();

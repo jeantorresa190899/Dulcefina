@@ -17,6 +17,13 @@ namespace Dulcefina.Controllers
         }
         //fin de dependencias
 
+        public IActionResult opcTortas()
+        {
+            ViewBag.tortas = _tortaRepository.GetAllTorta();
+            return View(_tortaRepository.GetAllTorta());
+           
+        }
+
         public IActionResult EscogerTorta()
         {
             ViewBag.torta = _tortaRepository.GetAllTorta();

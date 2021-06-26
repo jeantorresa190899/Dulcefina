@@ -20,7 +20,8 @@
                 <a href="http://www.google.com" target="_blank"><img class="facebook" src="~/imagenes/facebook.png"></a>
                 <a href="http://www.google.com" target="_blank"><img class="insta" src="~/imagenes/insta.png"></a>
                 <a id="dulce" href="QuienesSomos.html">DULCEFINA</a>
-                <a asp-controller="Principal" asp-action="log" target="_blank"><i>Bienvenido @ViewBag.cliente</i></a>
+                <a asp-controller="Principal" asp-action="log" target="_blank"><i> @ViewBag.cliente</i></a>
+                <div id="Cerrar"><a asp-controller="Ingreso" asp-action="Cerrar" target="_blank"><i>Cerrar Sesión</i></a></div>
 
                 <a href="http://www.google.com" target="_blank"><img class="carrito" src="~/imagenes/carrito.png" title="fm" alt="logo"></a>
             </div>

@@ -7,6 +7,7 @@ namespace Dulcefina.Models.Interface
 {
     public interface ITortaRepository
     {
+    //    public List<Tortum> GetAllTortum();
         IEnumerable<Tortum> GetAllTorta();
 
         IEnumerable<Topping> GetAllTopping();
