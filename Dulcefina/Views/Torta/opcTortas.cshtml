@@ -78,6 +78,191 @@
         }
 
 
+        @section scripts{ 
+                <script>
+             function fnAgregar(pro_IdTorta, pro_Nombre, pro_Descripcion, pro_IdCategoriaProducto, pro_costo, pro_Cantidad, pro_CantidadC, pro_Imagen) {
+                            var user_Id = $('#'+'lblIdUsuario_@ViewBag.UserSession.IdUsuario').val();
+                            var user_Password = $('#'+'lblPassword_@ViewBag.UserSession.IdUsuario').val();
+                            var user_Nombre = $('#'+'lblNombre_@ViewBag.UserSession.IdUsuario').val();
+                            var user_Apellido = $('#'+'lblApellido_@ViewBag.UserSession.IdUsuario').val();
+                            var user_Correo = $('#'+'lblCorreo_@ViewBag.UserSession.IdUsuario').val();
+                            var user_Telefono = $('#'+'lblTelefono_@ViewBag.UserSession.IdUsuario').val();
+                            var user_IdTipoUsuario = $('#'+'lblIdTipoUsuario_@ViewBag.UserSession.IdUsuario').val();
+                            var user_StateId = $('#'+'lblStateId_@ViewBag.UserSession.IdUsuario').val();
+                            var hoy = new Date();
+                            //Año
+                            var y = hoy.getFullYear();
+                            //Mes
+                            var m = hoy.getMonth() + 1;
+                            //Día
+                            var d = hoy.getDate();
+                            var fecha = d + "/" + m + "/" + y;
+                            console.log(user_Id, user_Nombre, user_Apellido, user_Correo, user_Telefono, user_IdTipoUsuario);
+                            console.log(pro_IdProducto, pro_Nombre, pro_Descripcion, pro_IdCategoriaProducto, pro_costo, pro_Cantidad, pro_CantidadC, pro_Imagen);
+                            if (pro_CantidadC == null || pro_CantidadC == "")
+                            {
+                                alert('Ingrese una cantiadad mayor a 0, :)');
+                                return;
+                            }
+
+                            var url = "@Url.Action("Agregar", "Pedido")";
+                            var data =  { a : pro_IdProducto, b : user_Id};
+                            var dato = {
+                                    a : 1,
+                                    b : 1,
+                                    c : 2
+                                };
+                            $.post(url, dato).done(function (dato){
+
+                                console.log(dato);
+
+                            }).fail(manejarErrorAjax).always(function(){
+
+                            });
+                            console.log("Comenzamos ----- Pedido en sesion -------");
+                            var url2 = "@Url.Action("AgregarPedido","Pedido")";
+                            var odata = {
+                                IdUsuario : user_Id,
+                                Password : user_Password,
+                                Nombre : user_Nombre,
+                                Apellido : user_Apellido,
+                                Correo : user_Correo,
+                                Telefono : user_Telefono,
+                                IdTipoUsuario : user_IdTipoUsuario,
+                                StateId : user_StateId,
+                                IdProducto : pro_IdProducto,
+                                NombreP : pro_Nombre,
+                                Descripcion : pro_Descripcion,
+                                IdCategoriaProducto : pro_IdCategoriaProducto,
+                                costo : pro_costo,
+                                Cantidad : pro_Cantidad,
+                                Imagen : pro_Imagen,
+                                FechaSolicitud : fecha,
+                                CantidadC : pro_CantidadC,
+                                Monto : pro_CantidadC * pro_costo,
+                                Estado : 0
+                            }
+                            console.log(odata);
+                            function manejarErrorAjax(err){
+                                console.log(err.responseText());
+                            }
+                            $.post(url2, odata).done(function (dato){
+
+                                console.log(odata);
+
+                            }).fail(manejarErrorAjax).always(function(){
+
+                            });
+
+                        }
+                        function filtros() {
+                            var Datos = "";
+                            var url = "@Url.Action("GetAllTipoProducto", "Producto")";
+                            $.get(url).done(function (data){
+
+                                for (var i = 0; i < data.length ; i++) {
+                                    Datos = "<option id='c";
+                                    Datos += data[i].idTipo;
+                                    Datos += "' value='";
+                                    Datos += data[i].idTipo;
+                                    Datos += "'>"
+                                    Datos += data[i].catProducto;
+                                    Datos += "</option>";
+                                    $("#inputfilter").append(Datos);
+                                }
+                                console.log("filtros: ",data);
+                            }).fail(manejarErrorAjax).always(function(){
+
+                            });
+                            function manejarErrorAjax(err){
+                                console.log(err.responseText());
+                            }
+                        }
+                        window.onload = filtros;
+                        console.log("---------------------Desde aqui comenzamos a filtrar --------------");
+                        const selectElement = document.querySelector('#inputfilter');
+                        selectElement.addEventListener('change', (event) => {
+                            const resultado = document.querySelector('#inputfiltercategoria');
+                            var aux = event.target.value;
+                            globaltp = aux;
+                            console.log(aux);
+                            var Datos2 = "";
+                            var envio = {id : aux}
+                            var url = "@Url.Action("GetAllCategoriaProductoid", "Producto")";
+                            $.get(url, envio).done(function (data){
+                                Datos2 = "<option>...</option>";
+                                for (var i = 0; i < data.length ; i++) {
+                                    Datos2 += "<option id='cat";
+                                    Datos2 += data[i].idCategoriaProducto;
+                                    Datos2 += "' value='";
+                                    Datos2 += data[i].idCategoriaProducto;
+                                    Datos2 += "'>"
+                                    Datos2 += data[i].parteCuerpo;
+                                    Datos2 += "</option>";
+                                }
+                                if (data.length == 0) {
+                                    Datos2 = "<option>...</option>";
+                                }
+                                console.log(data);
+                                console.log(Datos2);
+                                resultado.innerHTML = Datos2;
+                                console.log("--------------------");
+                                productos = document.getElementById("items");
+                                while (productos.firstChild) {
+                                    productos.removeChild(productos.firstChild);
+                                }
+                                var globalcp = $('#inputfilter').find(":selected").val();
+                                if (globalcp == "" || globaltp == null) {
+
+                                    var url12 = "@Url.Action("GetDataJS", "Producto")";
+                                    $.post(url12).done(function (result){
+                                            $("#items").html(result);
+                                            console.log("Estamos en el segundo filtro");
+                                            console.log(result);
+                                    }).fail(manejarErrorAjax).always(function(){
+                                    });
+                                    function manejarErrorAjax(err){
+                                        console.log(err.responseText());
+                                    }
+                                } else {
+                                    var url8 = "@Url.Action("GetData3", "Producto")";
+                                    data8 = { id : globalcp }
+                                    $.post(url8, data8).done(function (result){
+                                            $("#items").html(result);
+                                            console.log("Estamos en el primer filtro");
+                                            console.log(result);
+                                    }).fail(manejarErrorAjax).always(function(){
+                                    });
+                                    function manejarErrorAjax(err){
+                                        console.log(err.responseText());
+                                    }
+                                }
+                                console.log("--------------------");
+
+                            }).fail(manejarErrorAjax).always(function(){
+
+                            });
+                            function manejarErrorAjax(err){
+                                console.log(err.responseText());
+                            }
+
+                        });
+                </script>
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>  <!--para usar bootstrap el carrusel-->
 
