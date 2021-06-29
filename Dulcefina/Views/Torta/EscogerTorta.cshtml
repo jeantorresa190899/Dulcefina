@@ -1,4 +1,5 @@
-﻿@model Dulcefina.Models.Tortum
+﻿@model Dulcefina.Models.DetallePedido
+
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -45,13 +46,13 @@
             </div>
         </div>
 
-      
+        <form asp-controller="Carrito" asp-action="agregarCarrito" method="post">
             <div id="opcTortas">
                 <div class="container">
 
                     <img src="~/imagenes/@ViewData["foto"]" class="d-block w-100" alt="...">
                     <input type="hidden" value="@ViewData["idTorta"]" name="idTorta" />
-                   
+
                 </div>
             </div>
             <div id="desc">
@@ -94,7 +95,7 @@
                             <tr>
                                 <td class="pl-0">
                                     <div class="def-number-input number-input safari_only mb-0">
-                                        <input class="quantity" min="0" name="quantity" value="1" type="number">
+                                        <input asp-for="Cantidad" class="quantity" min="0" name="quantity" value="1" type="number">
                                     </div>
                                 </td>
                             </tr>
@@ -104,12 +105,17 @@
                 <button type="button" class="btn btn-light btn-md mr-1 mb-2">
                     <i class="fas fa-shopping-cart pr-2"></i>Añadir
                 </button>
-                <a asp-action="añadirTorta" asp-route-id="@ViewData["idTorta"]">Añadir</a>
-                <a asp-action="añadirTorta" asp-route-id="@ViewData["idTo"]">Añadir</a>
 
+                <input type="hidden" asp-for="IdTorta" value="@ViewData["idTorta"]" class="form-control" />
+                <input type="hidden" asp-for="IdTop" value="@(new SelectList(ViewBag.topping,"IdTop", "Nombre"))" class="form-control" />
+                <input type="hidden" asp-for="IdPedido" value="" class="form-control" />
+                <input type="hidden" asp-for="Mensaje" value="" class="form-control" />            
+                <input type="hidden" asp-for="Precio" value="@ViewData["precio"]" class="form-control" />
+                <button type="submit" value="Añadir" name="Añadir">Añadir</button>
 
+        </form>
 
-            </div>
+    </div>
         <div class="clear">
         </div>
 

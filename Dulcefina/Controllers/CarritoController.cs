@@ -29,24 +29,34 @@ namespace Dulcefina.Controllers
                 return RedirectToAction("log", "Principal");
             }
             else
-            {
+            {              
+                ViewBag.detalles = Listar(detalle);
                 return View();
+
             }
 
         }
 
+        public List<DetallePedido> detalle = new List<DetallePedido>();
+        public void agregarCarrito(DetallePedido detallePedido)
+        {
+            if (ModelState.IsValid)
+            {
+                detalle.Add(detallePedido);
+                RedirectToAction("Index", "Carrito");
+            }
+            else
+            {
+                //Falta
+            }
+        }
 
-        public List<DetallePedido> listaCarrito =new List<DetallePedido>();
-        
-        public void agregarCarrito()
+       public List<DetallePedido>Listar(List<DetallePedido> detalle)
         {
 
-
-
+            return detalle;
         }
-       
-        
 
-    
+
     }
 }
