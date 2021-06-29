@@ -49,7 +49,7 @@
         <div id="opcTortas">
             <div class="container">
 
-                <img src="~/imagenes/opcTealAntoinette.png" class="d-block w-100" alt="...">
+                <img src="~/imagenes/@ViewData["foto"]" class="d-block w-100" alt="...">
 
             </div>
         </div>
@@ -57,9 +57,9 @@
             <h5>Teal Antoinette</h5>
             <p class="mb-2 text-muted text-uppercase small">Categoria</p>
 
-            <p><span class="mr-1"><strong>Desde Precio</strong></span></p>
+            <p><span class="mr-1"><strong>Desde @ViewData["precio"]</strong></span></p>
             <p class="pt-1">
-                20-25 porciones
+                @ViewData["porcion"]
                 La torta es elaborada con buttercream (crema de mantequilla)
             </p>
             <div class="table-responsive">
@@ -67,11 +67,11 @@
                     <tbody>
                         <tr>
                             <th class="pl-0 w-25" scope="row"><strong>Sabor</strong></th>
-                            <td>Completar</td>
+                            <td>@ViewData["sabor"]</td>
                         </tr>
                         <tr>
                             <th class="pl-0 w-25" scope="row"><strong>Relleno</strong></th>
-                            <td>Completar</td>
+                            <td>@ViewData["relleno"]</td>
                         </tr>
                     </tbody>
                 </table>
@@ -101,7 +101,7 @@
             <button type="button" class="btn btn-light btn-md mr-1 mb-2">
                 <i class="fas fa-shopping-cart pr-2"></i>Añadir
             </button>
-
+            <a asp-controller="Carrito" asp-action="Index"><i>Añadir</i></a>
 
         </div>
         <div class="clear">

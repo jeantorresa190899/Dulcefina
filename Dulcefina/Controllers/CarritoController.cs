@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,16 @@ namespace Dulcefina.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var Objsesion = HttpContext.Session.GetString("scliente");
+            if (Objsesion == null)
+            {
+                return RedirectToAction("log", "Principal");
+            }
+            else
+            {
+                return View();
+            }
+
         }
     }
 }

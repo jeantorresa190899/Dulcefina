@@ -12,5 +12,8 @@ namespace Dulcefina.Models.Interface
 
         IEnumerable<Topping> GetAllTopping();
 
+        Tortum VerDetalleTorta(string codTorta);
+
+
     }
 }

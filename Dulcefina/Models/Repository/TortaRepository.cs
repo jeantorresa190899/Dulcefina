@@ -28,7 +28,15 @@ namespace Dulcefina.Models.Repository
         {
             return db.Toppings.ToList();
         }
-    
+
+        public Tortum VerDetalleTorta(string codTorta)
+        {
+            var obj = (from d in db.Torta
+                       where d.IdTorta == codTorta
+                       select d).Single();
+            return obj;
+        }
+
 
 
     }
