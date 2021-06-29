@@ -45,65 +45,71 @@
             </div>
         </div>
 
+      
+            <div id="opcTortas">
+                <div class="container">
 
-        <div id="opcTortas">
-            <div class="container">
+                    <img src="~/imagenes/@ViewData["foto"]" class="d-block w-100" alt="...">
+                    <input type="hidden" value="@ViewData["idTorta"]" name="idTorta" />
+                   
+                </div>
+            </div>
+            <div id="desc">
+                <h5>Teal Antoinette</h5>
+                <p class="mb-2 text-muted text-uppercase small">Categoria</p>
 
-                <img src="~/imagenes/@ViewData["foto"]" class="d-block w-100" alt="...">
+                <p><span class="mr-1"><strong>Desde @ViewData["precio"]</strong></span></p>
+                <p class="pt-1">
+                    @ViewData["porcion"]
+                    La torta es elaborada con buttercream (crema de mantequilla)
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-sm table-borderless mb-0">
+                        <tbody>
+                            <tr>
+                                <th class="pl-0 w-25" scope="row"><strong>Sabor</strong></th>
+                                <td>@ViewData["sabor"]</td>
+                            </tr>
+                            <tr>
+                                <th class="pl-0 w-25" scope="row"><strong>Relleno</strong></th>
+                                <td>@ViewData["relleno"]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                Toppings: <select class="mdb-select md-form" asp-items='@(new SelectList(ViewBag.topping,"IdTop", "Nombre"))' name="topping">
+                    <option value="" disabled selected>Escoge tu preferido</option>
+
+                </select>
+
+
+                <div class="table-responsive mb-2">
+                    <table class="table table-sm table-borderless">
+                        <tbody>
+                            <tr>
+                                <td class="pl-0 pb-0 w-25">Cantidad</td>
+                            </tr>
+                            <tr>
+                                <td class="pl-0">
+                                    <div class="def-number-input number-input safari_only mb-0">
+                                        <input class="quantity" min="0" name="quantity" value="1" type="number">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" class="btn btn-light btn-md mr-1 mb-2">
+                    <i class="fas fa-shopping-cart pr-2"></i>Añadir
+                </button>
+                <a asp-action="añadirTorta" asp-route-id="@ViewData["idTorta"]">Añadir</a>
+                <a asp-action="añadirTorta" asp-route-id="@ViewData["idTo"]">Añadir</a>
+
+
 
             </div>
-        </div>
-        <div id="desc">
-            <h5>Teal Antoinette</h5>
-            <p class="mb-2 text-muted text-uppercase small">Categoria</p>
-
-            <p><span class="mr-1"><strong>Desde @ViewData["precio"]</strong></span></p>
-            <p class="pt-1">
-                @ViewData["porcion"]
-                La torta es elaborada con buttercream (crema de mantequilla)
-            </p>
-            <div class="table-responsive">
-                <table class="table table-sm table-borderless mb-0">
-                    <tbody>
-                        <tr>
-                            <th class="pl-0 w-25" scope="row"><strong>Sabor</strong></th>
-                            <td>@ViewData["sabor"]</td>
-                        </tr>
-                        <tr>
-                            <th class="pl-0 w-25" scope="row"><strong>Relleno</strong></th>
-                            <td>@ViewData["relleno"]</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-
-            Toppings: <select class="mdb-select md-form" asp-items='@(new SelectList(ViewBag.topping,"IdTop", "Nombre"))'>
-                <option value="" disabled selected>Escoge tu preferido</option>
-            </select>
-
-            <div class="table-responsive mb-2">
-                <table class="table table-sm table-borderless">
-                    <tbody>
-                        <tr>
-                            <td class="pl-0 pb-0 w-25">Cantidad</td>
-                        </tr>
-                        <tr>
-                            <td class="pl-0">
-                                <div class="def-number-input number-input safari_only mb-0">
-                                    <input class="quantity" min="0" name="quantity" value="1" type="number">
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <button type="button" class="btn btn-light btn-md mr-1 mb-2">
-                <i class="fas fa-shopping-cart pr-2"></i>Añadir
-            </button>
-            <a asp-controller="Carrito" asp-action="Index"><i>Añadir</i></a>
-
-        </div>
         <div class="clear">
         </div>
 
